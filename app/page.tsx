@@ -1,19 +1,20 @@
-import { Button } from "@/components/ui/button"
+import AppAreaChart from "@/components/AppAreaChart";
+import AppBarChart from "@/components/AppBarChart";
+import AppPieChart from "@/components/AppPieChart";
+import CardList from "@/components/CardList";
+import ToDoList from "@/components/ToDoList";
 
-export default function Page() {
+const Homepage = () => {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-4">
+      <div className="bg-primary-foreground p-4 rounded-lg lg:col-span-2 xl:col-span-1 2xl:col-span-2"><AppBarChart /></div>
+      <div className="bg-primary-foreground p-4 rounded-lg"><CardList title="Popular Content" /></div>
+      <div className="bg-primary-foreground p-4 rounded-lg"><AppPieChart /></div>
+      <div className="bg-primary-foreground p-4 rounded-lg"><ToDoList /></div>
+      <div className="bg-primary-foreground p-4 rounded-lg lg:col-span-2 xl:col-span-1 2xl:col-span-2"><AppAreaChart /></div>
+      <div className="bg-primary-foreground p-4 rounded-lg"><CardList title="Latest Transactions" /></div>
     </div>
   )
 }
+
+export default Homepage;  
