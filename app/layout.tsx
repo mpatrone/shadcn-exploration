@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Roboto } from "next/font/google"
+import { Geist, Geist_Mono, Roboto, Outfit, Raleway, Noto_Sans, EB_Garamond } from "next/font/google"
 import { cookies } from "next/headers"
 import "./globals.css"
 
@@ -8,7 +8,9 @@ import NavBar from "@/components/Navbar"
 import { ThemeProvider } from "@/components/theme-provider"
 import { SidebarProvider } from "@/components/ui/sidebar";
 
-const roboto = Roboto({ subsets: ["latin"], variable: "--font-sans" })
+const ralewayHeading = Raleway({subsets:['latin'],variable:'--font-heading'});
+
+const outfit = Outfit({subsets:['latin'],variable:'--font-sans'})
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -28,11 +30,9 @@ export default async function RootLayout({
       lang="en"
       suppressHydrationWarning
       className={cn(
-        "antialiased",
-        fontMono.variable,
-        "font-sans",
-        roboto.variable
-      )}
+              "antialiased",
+              fontMono.variable
+            , "font-sans", outfit.variable, ralewayHeading.variable)}
     >
       <body className="flex">
         <ThemeProvider
